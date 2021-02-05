@@ -1,13 +1,25 @@
-body {
-    background: linear-gradient(120deg, #2a52be, #2abe96);
-    animation: pulse 10s ease infinite;
-    background-size: 400% 100%;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-@keyframes pulse {
-    0%,100% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 100% 0;
-    }
-  }
+
+main {
+  min-height: 100vh;
+  background: linear-gradient(to top right, #2a52be, #2abe96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.glass {
+  background: white;
+  min-height: 80vh;
+  width:60%;
+  background:linear-gradient(to right bottom,
+                           rgba(255, 255, 255, 0.7), 
+                           rgba(255, 255, 255, 0.3));
+  border-radius: 2rem;
+  z-index: 3;
+  backdrop-filter: blur(2rem);
+}
