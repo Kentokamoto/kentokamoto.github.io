@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Kentokamoto/kentokamoto.github.io#readme",
   "devDependencies": {
     "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "tw-elements": "^1.0.0-alpha13"
   }
 }
