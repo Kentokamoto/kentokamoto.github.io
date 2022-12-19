@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Ruby Jekyll files
+_site/
+Gemfile
+Gemfile.lock
