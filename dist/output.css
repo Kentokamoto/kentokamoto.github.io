@@ -5225,14 +5225,14 @@ textarea.form-control.is-invalid {
   margin-right: auto;
 }
 
-.mx-96 {
-  margin-left: 24rem;
-  margin-right: 24rem;
-}
-
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+
+.mx-96 {
+  margin-left: 24rem;
+  margin-right: 24rem;
 }
 
 .mt-2 {
@@ -5353,10 +5353,6 @@ textarea.form-control.is-invalid {
 
 .w-full {
   width: 100%;
-}
-
-.w-auto {
-  width: auto;
 }
 
 .flex-initial {
@@ -6257,6 +6253,16 @@ textarea.form-control.is-invalid {
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-pewter {
+  --tw-bg-opacity: 1;
+  background-color: rgb(215 227 229 / var(--tw-bg-opacity));
+}
+
+.bg-blue-grotto {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 120 157 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'\.\.\.\'\)\] {
   background-image: url('...');
 }
@@ -6408,14 +6414,19 @@ textarea.form-control.is-invalid {
   padding-bottom: 0.75rem;
 }
 
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .px-6 {
@@ -6426,11 +6437,6 @@ textarea.form-control.is-invalid {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .px-1\.5 {
@@ -6633,9 +6639,9 @@ textarea.form-control.is-invalid {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-blue-700 {
+.text-blue-600 {
   --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -6650,11 +6656,6 @@ textarea.form-control.is-invalid {
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
-}
-
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -7011,21 +7012,23 @@ textarea.form-control.is-invalid {
   content: "hello";
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  background: linear-gradient(to top right, #2a52be, #2abe96);
+  /*background: linear-gradient(to top right, #2a52be, #2abe96);*/
 }
 
 .glass {
   background: white;
-  background:linear-gradient(to right bottom,
-                           rgba(255, 255, 255, 0.7), 
-                           rgba(255, 255, 255, 0.3));
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
   z-index: 3;
   -webkit-backdrop-filter: blur(2rem);
           backdrop-filter: blur(2rem);
