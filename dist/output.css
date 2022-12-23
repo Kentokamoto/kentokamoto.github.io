@@ -5355,6 +5355,10 @@ textarea.form-control.is-invalid {
   width: 100%;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .flex-initial {
   flex: 0 1 auto;
 }
@@ -6449,6 +6453,11 @@ textarea.form-control.is-invalid {
   padding-right: 0.25rem;
 }
 
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .pt-3 {
   padding-top: 0.75rem;
 }
@@ -6656,6 +6665,21 @@ textarea.form-control.is-invalid {
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
+.text-slate-700 {
+  --tw-text-opacity: 1;
+  color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+
+.text-slate-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .underline {
