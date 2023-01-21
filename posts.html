@@ -6,10 +6,10 @@ title: All Posts
 <ul class="w-auto">
   {% for post in site.posts %}
   <li>
-    <a class="text-xl py-3 hover:text-blue-500" href="{{ post.url }}"
+    <a class="text-xl py-3 hover:text-nord10" href="{{ post.url }}"
       >{{ post.title }}</a
     >
-    <p class="text-slate-600">{{ post.date | date: "%b %d, %Y" }}</p>
+    <p class="text-nord7">{{ post.date | date: "%b %d, %Y" }}</p>
   </li>
   {% endfor %}
 </ul>
