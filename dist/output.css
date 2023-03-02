@@ -5359,6 +5359,18 @@ textarea.form-control.is-invalid {
   width: auto;
 }
 
+.w-4 {
+  width: 1rem;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
 .flex-initial {
   flex: 0 1 auto;
 }
@@ -6539,11 +6551,6 @@ textarea.form-control.is-invalid {
   line-height: 2rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -6554,8 +6561,9 @@ textarea.form-control.is-invalid {
   line-height: 1rem;
 }
 
-.font-bold {
-  font-weight: 700;
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-semibold {
@@ -6564,6 +6572,10 @@ textarea.form-control.is-invalid {
 
 .font-medium {
   font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .uppercase {
