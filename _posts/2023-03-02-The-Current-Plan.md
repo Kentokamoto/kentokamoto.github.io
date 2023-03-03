@@ -42,5 +42,6 @@ being used in production environments. I got a glimpse as to what some of those 
      also be a great way to reproduce errors since those events will persist somewhere in storage (As long as it's part
      of the product's design).
    * Some services I've seen being used are RabbitMQ and Kafka
-*  
 
+Just two large bullet points but if you were to talk to me a year ago, these would not be on my list of services I would 
+have been aware of. So baby steps I suppose. 
