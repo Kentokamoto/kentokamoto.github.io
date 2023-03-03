@@ -5355,20 +5355,12 @@ textarea.form-control.is-invalid {
   width: 100%;
 }
 
-.w-auto {
-  width: auto;
-}
-
-.w-4 {
-  width: 1rem;
-}
-
-.w-1\/2 {
-  width: 50%;
-}
-
 .w-screen {
   width: 100vw;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .flex-initial {
@@ -6196,10 +6188,6 @@ textarea.form-control.is-invalid {
   border-bottom-left-radius: 0.25rem;
 }
 
-.border-0 {
-  border-width: 0px;
-}
-
 .border {
   border-width: 1px;
 }
@@ -6420,11 +6408,6 @@ textarea.form-control.is-invalid {
   padding: 1rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -6435,9 +6418,9 @@ textarea.form-control.is-invalid {
   padding-bottom: 0.5rem;
 }
 
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .py-1 {
@@ -6541,14 +6524,14 @@ textarea.form-control.is-invalid {
   font-family: "some font",sans-serif;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-3xl {
@@ -6650,9 +6633,9 @@ textarea.form-control.is-invalid {
   line-height: 1.25;
 }
 
-.text-nord5 {
+.text-nord7 {
   --tw-text-opacity: 1;
-  color: rgb(229 233 240 / var(--tw-text-opacity));
+  color: rgb(143 188 187 / var(--tw-text-opacity));
 }
 
 .text-nord4 {
@@ -6660,9 +6643,9 @@ textarea.form-control.is-invalid {
   color: rgb(216 222 233 / var(--tw-text-opacity));
 }
 
-.text-nord7 {
+.text-nord5 {
   --tw-text-opacity: 1;
-  color: rgb(143 188 187 / var(--tw-text-opacity));
+  color: rgb(229 233 240 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -7068,14 +7051,14 @@ body {
   font-weight: 700;
 }
 
-.hover\:text-nord9:hover {
-  --tw-text-opacity: 1;
-  color: rgb(129 161 193 / var(--tw-text-opacity));
-}
-
 .hover\:text-nord10:hover {
   --tw-text-opacity: 1;
   color: rgb(94 129 172 / var(--tw-text-opacity));
+}
+
+.hover\:text-nord9:hover {
+  --tw-text-opacity: 1;
+  color: rgb(129 161 193 / var(--tw-text-opacity));
 }
 
 .hover\:shadow-lg:hover {

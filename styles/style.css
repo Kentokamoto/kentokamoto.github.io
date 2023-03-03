@@ -2,23 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/*.post ul{
+  list-style-type: circle 
 }
-
-body {
-  /*background: linear-gradient(to top right, #2a52be, #2abe96);*/
-}
-
-.glass {
-  background: white;
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
-  z-index: 3;
-  backdrop-filter: blur(2rem);
-}
+*/
