@@ -63,8 +63,7 @@
     color: rgb(143 188 187 / var(--tw-text-opacity));
   }
   & ul {
-    list-style: circle;
-    margin-top: 0.5em;
+    list-style-type: disc;
     padding-top: 0.1rem;
     padding-left: 1rem;
     padding-right: 0.5rem;
