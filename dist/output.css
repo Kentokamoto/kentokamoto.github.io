@@ -6711,6 +6711,16 @@ textarea.form-control.is-invalid {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-nord9 {
+  --tw-text-opacity: 1;
+  color: rgb(129 161 193 / var(--tw-text-opacity));
+}
+
+.text-nord15 {
+  --tw-text-opacity: 1;
+  color: rgb(180 142 173 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
