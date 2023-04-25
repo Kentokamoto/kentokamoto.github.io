@@ -27,9 +27,9 @@ module.exports = {
       },
     },
     listStyleType: {
-      square: 'square',
-      roman: 'upper-roman',
-    }
+      square: "square",
+      roman: "upper-roman",
+    },
   },
 
   plugins: [require("tw-elements/dist/plugin")],
