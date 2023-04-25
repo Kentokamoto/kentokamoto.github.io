@@ -68,4 +68,10 @@
     padding-left: 1rem;
     padding-right: 0.5rem;
   }
+  @media (prefers-color-scheme: dark) {
+    & a {
+      --tw-text-opacity: 1;
+      color: rgb(94 129 172 / var(--tw-text-opacity));
+    }
+  }
 }
