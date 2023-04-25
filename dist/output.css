@@ -5611,6 +5611,10 @@ textarea.form-control.is-invalid {
   list-style-position: outside;
 }
 
+.list-square {
+  list-style-type: square;
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -6287,11 +6291,6 @@ textarea.form-control.is-invalid {
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
-.bg-nord4 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(216 222 233 / var(--tw-bg-opacity));
 }
 
 .bg-nord5 {
@@ -7128,7 +7127,7 @@ textarea.form-control.is-invalid {
     margin-top: 1em;
   }
   & a {
-    color: rgb(143 188 187 / var(--tw-text-opacity));
+    color: rgb(94 129 172 / var(--tw-text-opacity));
   }
   & ul {
     list-style-type: disc;
@@ -7139,7 +7138,7 @@ textarea.form-control.is-invalid {
   @media (prefers-color-scheme: dark) {
     & a {
       --tw-text-opacity: 1;
-      color: rgb(94 129 172 / var(--tw-text-opacity));
+      color: rgb(143 188 187 / var(--tw-text-opacity));
     }
   }
 }
@@ -7196,11 +7195,6 @@ textarea.form-control.is-invalid {
 .hover\:text-nord10:hover {
   --tw-text-opacity: 1;
   color: rgb(94 129 172 / var(--tw-text-opacity));
-}
-
-.hover\:text-nord9:hover {
-  --tw-text-opacity: 1;
-  color: rgb(129 161 193 / var(--tw-text-opacity));
 }
 
 .hover\:shadow-lg:hover {
@@ -7291,21 +7285,6 @@ textarea.form-control.is-invalid {
     color: rgb(143 188 187 / var(--tw-text-opacity));
   }
 
-  .hover\:dark\:text-nord10:hover {
-    --tw-text-opacity: 1;
-    color: rgb(94 129 172 / var(--tw-text-opacity));
-  }
-
-  .hover\:dark\:text-nord9:hover {
-    --tw-text-opacity: 1;
-    color: rgb(129 161 193 / var(--tw-text-opacity));
-  }
-
-  .dark\:hover\:text-nord9:hover {
-    --tw-text-opacity: 1;
-    color: rgb(129 161 193 / var(--tw-text-opacity));
-  }
-
   .dark\:hover\:text-nord8:hover {
     --tw-text-opacity: 1;
     color: rgb(136 192 208 / var(--tw-text-opacity));
@@ -7329,6 +7308,10 @@ textarea.form-control.is-invalid {
 
   .md\:flex-none {
     flex: none;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
   }
 
   .md\:justify-end {

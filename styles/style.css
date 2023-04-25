@@ -60,7 +60,7 @@
     margin-top: 1em;
   }
   & a {
-    color: rgb(143 188 187 / var(--tw-text-opacity));
+    color: rgb(94 129 172 / var(--tw-text-opacity));
   }
   & ul {
     list-style-type: disc;
@@ -71,7 +71,7 @@
   @media (prefers-color-scheme: dark) {
     & a {
       --tw-text-opacity: 1;
-      color: rgb(94 129 172 / var(--tw-text-opacity));
+      color: rgb(143 188 187 / var(--tw-text-opacity));
     }
   }
 }
