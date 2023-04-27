@@ -5,9 +5,6 @@ module.exports = {
     extend: {
       colors: {
         pewter: "#D7E3E5",
-        "misty-blue": "#2E4D58",
-        "baby-blue": "#3D9ABD",
-        "blue-grotto": "#00789D",
         nord0: "#2E3440",
         nord1: "#3B4252",
         nord2: "#434C5E",

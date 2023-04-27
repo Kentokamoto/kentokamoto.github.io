@@ -18,9 +18,11 @@
   </head>
 
   <body class="flex flex-col flex-initial h-screen dark:bg-nord0 bg-nord5">
-    <header class="mx-auto md:mx-10 text-nord1 dark:text-nord4">
-      <nav class="p-4 flex flex-col items-center md:flex-row grow-0 items-end">
-        <div class="flex items-start md:hidden">
+    <header class="mx-10 text-nord1 dark:text-nord4">
+      <nav
+        class="p-4 flex flex-col md:items-center item-start md:flex-row grow-0"
+      >
+        <div class="md:hidden">
           <button
             type="button"
             class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -73,7 +75,7 @@ Menu open: "block", Menu closed: "hidden" -->
         </div>
 
         <div
-          class="absolute md:static md:bg-nord5 md:dark:bg-nord0 dark:bg-nord3 bg-nord6 rounded-lg w-40 items-center md:min-h-fit min-h-[27vh] z-[1] md:opacity-100 opacity-0 md:block hidden top-[50px] transition-all ease-in duration-500"
+          class="absolute md:static md:bg-nord5 md:dark:bg-nord0 dark:bg-nord3 bg-nord6 rounded-lg w-40 items-center md:min-h-fit md:py-0 py-3 z-[1] md:opacity-100 opacity-0 md:block left-[-400px] top-[60px] transition-all ease-in duration-500"
           id="navLinks"
         >
           <ul
@@ -141,10 +143,8 @@ Menu open: "block", Menu closed: "hidden" -->
       }
       let navLinks = document.getElementById("navLinks");
       navLinks.classList.toggle("opacity-100");
-      navLinks.classList.toggle("hidden");
-      navLinks.classList.toggle("top-[60px]");
+      navLinks.classList.toggle("left-[5px]");
       navLinks.classList.toggle("drop-shadow-md");
-      // navLinks.classList.toggle('z-[1]')
       console.log(navLinks);
     }
   </script>
