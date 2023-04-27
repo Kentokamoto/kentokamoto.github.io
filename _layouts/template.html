@@ -33,7 +33,7 @@
             Icon when menu is closed.
 
 Menu open: "hidden", Menu closed: "block" -->
-         
+
             <svg
               class="block h-6 w-6"
               fill="none"
@@ -53,7 +53,7 @@ Menu open: "hidden", Menu closed: "block" -->
             Icon when menu is open.
 
 Menu open: "block", Menu closed: "hidden" -->
-         
+
             <svg
               class="hidden h-6 w-6"
               fill="none"
@@ -73,8 +73,9 @@ Menu open: "block", Menu closed: "hidden" -->
         </div>
 
         <div
-          class="absolute md:static md:bg-nord6 md:dark:bg-nord0 dark:bg-nord3 bg-nord5 rounded-lg w-40 items-center md:min-h-fit min-h-[27vh] z-[1] md:opacity-100 opacity-0 md:block hidden top-[50px] transition-all ease-in duration-500"
-         id="navLinks">
+          class="absolute md:static md:bg-nord5 md:dark:bg-nord0 dark:bg-nord3 bg-nord6 rounded-lg w-40 items-center md:min-h-fit min-h-[27vh] z-[1] md:opacity-100 opacity-0 md:block hidden top-[50px] transition-all ease-in duration-500"
+          id="navLinks"
+        >
           <ul
             class="flex items-center md:items-start gap-7 text-xl md:flex-row flex-col"
           >
@@ -128,23 +129,23 @@ Menu open: "block", Menu closed: "hidden" -->
   </body>
   <script>
     function toggleMenu(e) {
-      let svgs = e.getElementsByTagName('svg');
+      let svgs = e.getElementsByTagName("svg");
       for (const svg of svgs) {
-          if( svg.classList.contains('hidden') ) {
-            svg.classList.remove('hidden');
-            svg.classList.add('block');
-          }else{
-            svg.classList.remove('block');
-            svg.classList.add('hidden');
-          }
+        if (svg.classList.contains("hidden")) {
+          svg.classList.remove("hidden");
+          svg.classList.add("block");
+        } else {
+          svg.classList.remove("block");
+          svg.classList.add("hidden");
         }
-        let navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('opacity-100');
-        navLinks.classList.toggle('hidden');
-      navLinks.classList.toggle('top-[60px]')
-      // navLinks.classList.toggle('z-[1]')
-        console.log(navLinks);
       }
-
+      let navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("opacity-100");
+      navLinks.classList.toggle("hidden");
+      navLinks.classList.toggle("top-[60px]");
+      navLinks.classList.toggle("drop-shadow-md");
+      // navLinks.classList.toggle('z-[1]')
+      console.log(navLinks);
+    }
   </script>
 </html>
