@@ -1,132 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>{{page.title}}</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link rel="stylesheet" href="/dist/output.css" />
-    <script src="https://kit.fontawesome.com/5493abd9d4.js" crossorigin="anonymous"></script>
-  </head>
+    <head>
+        <title>{{page.title}}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="/assets/images/favicon.png"
+        />
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link rel="stylesheet" href="/dist/output.css" />
+        <script
+            src="https://kit.fontawesome.com/5493abd9d4.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
 
-  <body class="flex flex-col flex-initial h-screen dark:bg-nord0 bg-nord5">
-    <header class="mx-10 text-nord1 dark:text-nord4">
-      <nav class="p-4 flex flex-col md:items-center item-start md:flex-row grow-0">
-        <div class="md:hidden">
-          <button
-            type="button"
-            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-            aria-controls="mobile-menu"
-            aria-expanded="false"
-            onclick="toggleMenu(this)"
-          >
-            <span class="sr-only">Open main menu</span>
-            <!--
+    <body class="flex flex-col flex-initial h-screen dark:bg-nord0 bg-nord5">
+        <header class="mx-10 text-nord1 dark:text-nord4">
+            <nav
+                class="p-4 flex flex-col md:items-center item-start md:flex-row grow-0"
+            >
+                <div class="md:hidden">
+                    <button
+                        type="button"
+                        class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu"
+                        aria-expanded="false"
+                        onclick="toggleMenu(this)"
+                    >
+                        <span class="sr-only">Open main menu</span>
+                        <!--
             Icon when menu is closed.
 
 Menu open: "hidden", Menu closed: "block" -->
 
-            <svg
-              class="block h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              name="open"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!--
+                        <svg
+                            class="block h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                            name="open"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                            />
+                        </svg>
+                        <!--
             Icon when menu is open.
 
 Menu open: "block", Menu closed: "hidden" -->
 
-            <svg
-              class="hidden h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              name="close"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+                        <svg
+                            class="hidden h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                            name="close"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
+                </div>
 
-        <div
-          class="absolute md:static md:bg-nord5 md:dark:bg-nord0 dark:bg-nord3 bg-nord6 rounded-lg w-40 items-center md:min-h-fit md:py-0 py-3 z-[1] md:opacity-100 opacity-0 md:block left-[-400px] top-[60px] transition-all ease-in duration-500"
-          id="navLinks"
-        >
-          <ul class="flex items-center md:items-start gap-7 text-xl md:flex-row flex-col">
-            <li>
-              <a
-                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
-                href="/index.html"
-                >Home</a
-              >
-            </li>
+                <div
+                    class="absolute md:static md:bg-nord5 md:dark:bg-nord0 dark:bg-nord3 bg-nord6 rounded-lg w-40 items-center md:min-h-fit md:py-0 py-3 z-[1] md:opacity-100 opacity-0 md:block left-[-400px] top-[60px] transition-all ease-in duration-500"
+                    id="navLinks"
+                >
+                    <ul
+                        class="flex items-center md:items-start gap-7 text-xl md:flex-row flex-col"
+                    >
+                        <li>
+                            <a
+                                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
+                                href="/index.html"
+                                >Home</a
+                            >
+                        </li>
 
-            <li>
-              <a
-                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
-                href="/views/posts.html"
-                >Posts</a
-              >
-            </li>
-            <li>
-              <a
-                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
-                href="https://github.com/Kentokamoto"
-                >Github</a
-              >
-            </li>
-            <li>
-              <a
-                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
-                href="/views/Kento_Okamoto_Resume.html"
-                >Resume</a
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main class="grow text-nord1 dark:text-nord4">
-      <div class="container flex flex-col mx-auto p-0">
-        <div
-          class="flex flex-col bg-nord6 dark:bg-nord2 rounded-3xl justify-around content-center p-4 drop-shadow-2xl my-3"
-        >
-          <div class="py-1">
-            <div>
-              <h1 class="text-2xl w-auto text-center">{{page.title}}</h1>
-              <section>{{content}}</section>
+                        <li>
+                            <a
+                                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
+                                href="/views/posts.html"
+                                >Posts</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
+                                href="https://github.com/Kentokamoto"
+                                >Github</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
+                                href="/views/Kento_Okamoto_Resume.html"
+                                >Resume</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="grow text-nord1 dark:text-nord4">
+            <div class="container flex flex-col mx-auto p-0">
+                <div
+                    class="flex flex-col bg-nord6 dark:bg-nord2 rounded-3xl justify-around content-center p-4 drop-shadow-2xl my-3"
+                >
+                    <div class="py-1">
+                        <div>
+                            <h1 class="text-2xl w-auto text-center">
+                                {{page.title}}
+                            </h1>
+                            <section>{{content}}</section>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </body>
-  <script>
-    function toggleMenu(e) {
-      let svgs = e.getElementsByTagName("svg");
-      for (const svg of svgs) {
-        if (svg.classList.contains("hidden")) {
-          svg.classList.remove("hidden");
-          svg.classList.add("block");
-        } else {
-          svg.classList.remove("block");
-          svg.classList.add("hidden");
+        </main>
+    </body>
+    <script>
+        function toggleMenu(e) {
+            let svgs = e.getElementsByTagName('svg')
+            for (const svg of svgs) {
+                if (svg.classList.contains('hidden')) {
+                    svg.classList.remove('hidden')
+                    svg.classList.add('block')
+                } else {
+                    svg.classList.remove('block')
+                    svg.classList.add('hidden')
+                }
+            }
+            let navLinks = document.getElementById('navLinks')
+            navLinks.classList.toggle('opacity-100')
+            navLinks.classList.toggle('left-[5px]')
+            navLinks.classList.toggle('drop-shadow-md')
+            console.log(navLinks)
         }
-      }
-      let navLinks = document.getElementById("navLinks");
-      navLinks.classList.toggle("opacity-100");
-      navLinks.classList.toggle("left-[5px]");
-      navLinks.classList.toggle("drop-shadow-md");
-      console.log(navLinks);
-    }
-  </script>
+    </script>
 </html>

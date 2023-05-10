@@ -4,10 +4,14 @@ title: All Posts
 ---
 
 <ul class="w-screen">
-  {% for post in site.posts %}
-  <li class="py-1">
-    <a class="text-xl py-3 hover:text-nord10" href="{{ post.url }}">{{ post.title }}</a>
-    <p class="text-nord10 dark:text-nord7">{{ post.date | date: "%b %d, %Y" }}</p>
-  </li>
-  {% endfor %}
+    {% for post in site.posts %}
+    <li class="py-1">
+        <a class="text-xl py-3 hover:text-nord10" href="{{ post.url }}"
+            >{{ post.title }}</a
+        >
+        <p class="text-nord10 dark:text-nord7">
+            {{ post.date | date: "%b %d, %Y" }}
+        </p>
+    </li>
+    {% endfor %}
 </ul>

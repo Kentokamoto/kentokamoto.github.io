@@ -3,75 +3,75 @@
 @tailwind utilities;
 
 .post {
-  & h1 {
-    display: block;
-    font-size: 2em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
-  & h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
-  & h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
-  & h4 {
-    display: block;
-    margin-top: 1.33em;
-    margin-bottom: 1.33em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
-  & h5 {
-    display: block;
-    font-size: 0.83em;
-    margin-top: 1.67em;
-    margin-bottom: 1.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
-  & h6 {
-    display: block;
-    font-size: 0.67em;
-    margin-top: 2.33em;
-    margin-bottom: 2.33em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
-  & p {
-    margin-top: 1em;
-  }
-  & a {
-    color: rgb(94 129 172 / var(--tw-text-opacity));
-  }
-  & ul {
-    list-style-type: disc;
-    padding-top: 0.1rem;
-    padding-left: 1rem;
-    padding-right: 0.5rem;
-  }
-  @media (prefers-color-scheme: dark) {
-    & a {
-      --tw-text-opacity: 1;
-      color: rgb(143 188 187 / var(--tw-text-opacity));
+    & h1 {
+        display: block;
+        font-size: 2em;
+        margin-top: 0.67em;
+        margin-bottom: 0.67em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
     }
-  }
+    & h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-top: 0.83em;
+        margin-bottom: 0.83em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    & h3 {
+        display: block;
+        font-size: 1.17em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    & h4 {
+        display: block;
+        margin-top: 1.33em;
+        margin-bottom: 1.33em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    & h5 {
+        display: block;
+        font-size: 0.83em;
+        margin-top: 1.67em;
+        margin-bottom: 1.67em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    & h6 {
+        display: block;
+        font-size: 0.67em;
+        margin-top: 2.33em;
+        margin-bottom: 2.33em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    & p {
+        margin-top: 1em;
+    }
+    & a {
+        color: rgb(94 129 172 / var(--tw-text-opacity));
+    }
+    & ul {
+        list-style-type: disc;
+        padding-top: 0.1rem;
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+    }
+    @media (prefers-color-scheme: dark) {
+        & a {
+            --tw-text-opacity: 1;
+            color: rgb(143 188 187 / var(--tw-text-opacity));
+        }
+    }
 }
