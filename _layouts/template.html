@@ -4,24 +4,15 @@
     <title>{{page.title}}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="/assets/images/favicon.png"
-    />
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/dist/output.css" />
-    <script
-      src="https://kit.fontawesome.com/5493abd9d4.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/5493abd9d4.js" crossorigin="anonymous"></script>
   </head>
 
   <body class="flex flex-col flex-initial h-screen dark:bg-nord0 bg-nord5">
     <header class="mx-10 text-nord1 dark:text-nord4">
-      <nav
-        class="p-4 flex flex-col md:items-center item-start md:flex-row grow-0"
-      >
+      <nav class="p-4 flex flex-col md:items-center item-start md:flex-row grow-0">
         <div class="md:hidden">
           <button
             type="button"
@@ -45,11 +36,7 @@ Menu open: "hidden", Menu closed: "block" -->
               aria-hidden="true"
               name="open"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
             <!--
             Icon when menu is open.
@@ -65,11 +52,7 @@ Menu open: "block", Menu closed: "hidden" -->
               aria-hidden="true"
               name="close"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
@@ -78,9 +61,7 @@ Menu open: "block", Menu closed: "hidden" -->
           class="absolute md:static md:bg-nord5 md:dark:bg-nord0 dark:bg-nord3 bg-nord6 rounded-lg w-40 items-center md:min-h-fit md:py-0 py-3 z-[1] md:opacity-100 opacity-0 md:block left-[-400px] top-[60px] transition-all ease-in duration-500"
           id="navLinks"
         >
-          <ul
-            class="flex items-center md:items-start gap-7 text-xl md:flex-row flex-col"
-          >
+          <ul class="flex items-center md:items-start gap-7 text-xl md:flex-row flex-col">
             <li>
               <a
                 class="hover:drop-shadow-md hover:rounded-2xl hover:text-nord10 dark:hover:text-nord8"
