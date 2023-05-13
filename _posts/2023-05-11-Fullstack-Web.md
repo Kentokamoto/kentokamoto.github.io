@@ -2,6 +2,7 @@
 layout: post
 title: Fullstack Web Dev
 header: The world that is Web Development
+tags: fullstack web API udemy
 ---
 
 I started my coding journey with doing assignments deriving and graphing out
