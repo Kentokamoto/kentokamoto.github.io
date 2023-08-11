@@ -57,4 +57,26 @@ this or get lazy about adding it in. Making the `mut` a requirement for
 variables that are meant to be modified makes it clear which variables will
 change as it progresses through the code.
 
-###
+### Functions
+
+In terms of syntax for functions go, I see that we're beginning to settle on how
+parameters are defined in various languages. I agree that having the types of
+each parameter being defined makes a ton of sense but the ordering was a little
+backwards in my head compared to C++ which formats parameters with the type
+first, followed by the name whereas Rust and even Python3 now has the name
+first, followed by a colon and then the type defined after. Typescript also
+follows this format as well. I wish I could dig deeper and ask the question of
+why we've settled with this format for various languages but I'll leave that for
+another time when I go down the rabbit hole of programming languages.
+
+One thing that really stood out to me was how return types were handled in Rust.
+Most languages I've worked with require the `return` keyword at the end of
+function if you need a value or reference to be passed back to the caller. For
+Rust's case, this is only required if you need the function to end early.
+Otherwise you could end the function with a statement while also omitting the
+semicolon at the end
+
+---
+
+This is it for now. I'll probably stick to a chapter at a time from here on out
+unless I feel some sections are a little light on material.
