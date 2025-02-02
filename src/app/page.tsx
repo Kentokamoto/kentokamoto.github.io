@@ -10,9 +10,17 @@ export default function Home() {
     return (
         <div>
             <div
-                className={`bg-nord4 dark:bg-nord0 absolute top-0 left-0 h-screen w-screen text-4xl duration-300 ease-in-out ${isOpen ? 'opacity-100' : '-translate-y-5 opacity-0'}`}
+                className={`bg-nord4 dark:bg-nord0 absolute top-0 left-0 flex h-screen w-screen flex-col place-content-center text-4xl duration-300 ease-in-out ${isOpen ? 'opacity-100' : '-translate-y-5 opacity-0'}`}
             >
-                <div className="px-4 py-3 sm:flex md:py-4">About</div>
+                <div className="px-4 py-3 text-right sm:flex md:py-4">
+                    About
+                </div>
+                <div className="px-4 py-3 text-right sm:flex md:py-4">
+                    Posts
+                </div>
+                <div className="px-4 py-3 text-right sm:flex md:py-4">
+                    Resume
+                </div>
             </div>
             <Header isOpen={isOpen} onOpen={handleOpen} />
 
