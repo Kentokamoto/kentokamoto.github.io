@@ -34,20 +34,7 @@ jobs:
             - name: Get Bun
               uses: oven-sh/setup-bun@v2
 
-            - name: Ensure Bun is in PATH
-              run: echo "$HOME/.bun/bin" >> $GITHUB_PATH
-
-            - name: Cache dependencies
-              id: cache_dependencies
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      ~/.bun/install/cache
-                  key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-                  restore-keys: ${{ runner.os }}-bun-${{ env.cache-name }}-
-
-            - if: steps.cache_dependencies.outputs.cache-hit != 'true'
-              name: Install dependencies
+            - name: Install dependencies
               run: bun install
 
             - name: Build
