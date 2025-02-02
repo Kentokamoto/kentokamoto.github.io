@@ -11,7 +11,7 @@ export default function Home() {
         <div>
             <Header isOpen={isOpen} onOpen={handleOpen} />
             <div
-                className={`absolute top-0 left-0 h-screen w-screen bg-black text-4xl duration-300 ease-in-out ${isOpen ? 'opacity-100' : '-translate-y-5 opacity-0'}`}
+                className={`absolute top-0 left-0 h-screen w-screen bg-white text-4xl duration-300 ease-in-out dark:bg-black ${isOpen ? 'opacity-100' : '-translate-y-5 opacity-0'}`}
             >
                 <div className="px-4 py-3 sm:flex md:py-4">About</div>
             </div>

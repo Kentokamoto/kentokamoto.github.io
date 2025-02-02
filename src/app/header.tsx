@@ -15,13 +15,13 @@ const Header: React.FC<HeaderProps> = ({ isOpen, onOpen }) => {
                 onClick={onOpen}
             >
                 <span
-                    className={`m-0.75 block h-1 w-7 origin-top-left rounded-xs bg-white ${isOpen ? 'translate-y-1/5 rotate-45 duration-300' : 'duration-300'}`}
+                    className={`m-0.75 block h-1 w-7 origin-top-left rounded-xs bg-black dark:bg-white ${isOpen ? 'translate-x-1/5 translate-y-1/5 rotate-45 duration-300' : 'duration-300'}`}
                 ></span>
                 <span
-                    className={`m-0.75 block h-1 w-7 rounded-xs ${isOpen ? 'invisible duration-300' : 'bg-white duration-300'}`}
+                    className={`m-0.75 block h-1 w-7 rounded-xs ${isOpen ? 'invisible duration-300' : 'bg-black duration-300 dark:bg-white'}`}
                 ></span>
                 <span
-                    className={`m-0.75 block h-1 w-7 origin-bottom-left rounded-xs bg-white ${isOpen ? '-translate-y-1/5 -rotate-45 duration-300' : 'duration-300'}`}
+                    className={`m-0.75 block h-1 w-7 origin-bottom-left rounded-xs bg-black dark:bg-white ${isOpen ? '-translate-y-1/5 translate-x-1/5 -rotate-45 duration-300' : 'duration-300'}`}
                 ></span>
             </button>
         </header>
