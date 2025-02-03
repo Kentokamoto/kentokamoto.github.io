@@ -22,6 +22,8 @@
     --color-nord15: #b48ead;
     --color-background: var(--background);
     --color-foreground: var(--foreground);
+
+    --font-display: 'Oswald', 'sans-serif';
 }
 
 /*
@@ -57,6 +59,10 @@
 body {
     color: var(--foreground);
     background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     margin: 0;
+}
+
+svg {
+    vertical-align: middle;
 }
