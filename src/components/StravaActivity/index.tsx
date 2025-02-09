@@ -1,5 +1,4 @@
 import Script from 'next/script'
-import React from 'react'
 const StravaActivity = ({ activityId }: { activityId: number }) => {
     return (
         <>
