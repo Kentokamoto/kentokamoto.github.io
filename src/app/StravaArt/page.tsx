@@ -10,6 +10,7 @@ export default function StravaArt() {
             <div>
                 <p>{blurb}</p>
             </div>
+            <div className="flex flex-row flex-wrap items-center justify-center"></div>
             <StravaActivities />
         </div>
     )
