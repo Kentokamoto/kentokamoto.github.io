@@ -11,7 +11,7 @@ const NavBar = () => {
     return (
         <>
             <div
-                className={`bg-nord4 dark:bg-nord0 absolute top-0 left-0 flex h-screen w-screen flex-col place-content-center text-4xl duration-300 ease-in-out ${isOpen ? 'opacity-100' : '-translate-y-5 opacity-0'}`}
+                className={`bg-nord4 dark:bg-nord0 absolute top-0 left-0 flex h-screen w-screen flex-col place-content-center text-4xl duration-300 ease-in-out sm:-z-20 ${isOpen ? 'opacity-100' : '-translate-y-5 opacity-0'}`}
             >
                 <div className="px-4 py-3 text-right sm:flex md:py-4">
                     About
@@ -27,7 +27,7 @@ const NavBar = () => {
             <div className="hidden px-4 py-3 sm:flex md:py-4">Posts</div>
             <div className="hidden px-4 py-3 sm:flex md:py-4">Resume</div>
             <button
-                className="z-50 flex flex-col px-4 py-3 sm:hidden"
+                className="z-50 flex flex-col px-4 py-3 sm:-z-20 sm:hidden"
                 onClick={handleOpen}
             >
                 <span
