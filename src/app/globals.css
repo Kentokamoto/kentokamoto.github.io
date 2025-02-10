@@ -49,6 +49,13 @@
     --foreground: var(--color-nord0);
 }
 
+@layer theme {
+    .dark {
+        --background: var(--color-nord0);
+        --foreground: var(--color-nord4);
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --background: var(--color-nord0);

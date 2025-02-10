@@ -52,13 +52,13 @@ const NavBar = () => {
                 onClick={handleOpen}
             >
                 <span
-                    className={`m-0.75 block h-1 w-7 origin-top-left rounded-xs bg-black dark:bg-white ${isOpen ? 'translate-x-1/5 translate-y-1/5 rotate-45 duration-300' : 'duration-300'}`}
+                    className={`dark:bg-nord4 bg-nord0 m-0.75 block h-1 w-7 origin-top-left rounded-xs ${isOpen ? 'translate-x-1/5 translate-y-1/5 rotate-45 duration-300' : 'duration-300'}`}
                 ></span>
                 <span
-                    className={`m-0.75 block h-1 w-7 rounded-xs ${isOpen ? 'invisible duration-300' : 'bg-black duration-300 dark:bg-white'}`}
+                    className={`m-0.75 block h-1 w-7 rounded-xs ${isOpen ? 'invisible duration-300' : 'dark:bg-nord4 bg-nord0 duration-300'}`}
                 ></span>
                 <span
-                    className={`m-0.75 block h-1 w-7 origin-bottom-left rounded-xs bg-black dark:bg-white ${isOpen ? '-translate-y-1/5 translate-x-1/5 -rotate-45 duration-300' : 'duration-300'}`}
+                    className={`bg-nord0 dark:bg-nord4 m-0.75 block h-1 w-7 origin-bottom-left rounded-xs ${isOpen ? '-translate-y-1/5 translate-x-1/5 -rotate-45 duration-300' : 'duration-300'}`}
                 ></span>
             </button>
         </>
