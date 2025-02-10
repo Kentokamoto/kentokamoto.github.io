@@ -20,14 +20,16 @@ const NavBar = () => {
                     </Link>
                 </div>
                 <div className="px-4 py-3 text-right sm:flex md:py-4">
-                    Posts
-                </div>
-                <div className="px-4 py-3 text-right sm:flex md:py-4">
                     Resume
                 </div>
                 <div className="px-4 py-3 text-right sm:flex md:py-4">
                     <a href="/StravaArt" onClick={handleOpen}>
                         Strava Art
+                    </a>
+                </div>
+                <div className="px-4 py-3 text-right sm:flex md:py-4">
+                    <a href="https://kentokamoto.github.io/sliceathon/">
+                        Slice-a-Thon
                     </a>
                 </div>
             </div>
@@ -36,10 +38,14 @@ const NavBar = () => {
                     About
                 </Link>
             </div>
-            <div className="hidden px-4 py-3 sm:flex md:py-4">Posts</div>
             <div className="hidden px-4 py-3 sm:flex md:py-4">Resume</div>
             <div className="hidden px-4 py-3 sm:flex md:py-4">
                 <a href="/StravaArt">Strava Art</a>
+            </div>
+            <div className="hidden px-4 py-3 sm:flex md:py-4">
+                <a href="https://kentokamoto.github.io/sliceathon/">
+                    Slice-a-Thon
+                </a>
             </div>
             <button
                 className="z-50 flex flex-col px-4 py-3 sm:-z-20 sm:hidden"
