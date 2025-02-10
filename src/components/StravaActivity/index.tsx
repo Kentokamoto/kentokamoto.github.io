@@ -1,5 +1,10 @@
 import Script from 'next/script'
-const StravaActivity = ({ activityId }: { activityId: number }) => {
+import React from 'react'
+
+interface StravaActivityParams {
+    activityId: number
+}
+const StravaActivity = ({ activityId }: StravaActivityParams) => {
     return (
         <>
             <Script src="https://strava-embeds.com/embed.js"></Script>

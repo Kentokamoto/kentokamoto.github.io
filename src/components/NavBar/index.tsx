@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import React from 'react'
 import { useState } from 'react'
 const NavBar = () => {
@@ -11,10 +12,12 @@ const NavBar = () => {
     return (
         <>
             <div
-                className={`bg-nord4 dark:bg-nord0 absolute top-0 left-0 flex h-screen w-screen flex-col place-content-center text-4xl duration-300 ease-in-out sm:-z-20 ${isOpen ? 'opacity-100' : '-translate-y-5 opacity-0'}`}
+                className={`bg-nord4 dark:bg-nord0 absolute top-0 left-0 -z-1 flex h-screen w-screen flex-col place-content-center text-4xl duration-300 ease-in-out ${isOpen ? 'z-20 opacity-100' : '-translate-y-5 opacity-0'}`}
             >
                 <div className="px-4 py-3 text-right sm:flex md:py-4">
-                    About
+                    <Link href="/" onClick={handleOpen} replace={true}>
+                        About
+                    </Link>
                 </div>
                 <div className="px-4 py-3 text-right sm:flex md:py-4">
                     Posts
@@ -22,10 +25,22 @@ const NavBar = () => {
                 <div className="px-4 py-3 text-right sm:flex md:py-4">
                     Resume
                 </div>
+                <div className="px-4 py-3 text-right sm:flex md:py-4">
+                    <a href="/StravaArt" onClick={handleOpen}>
+                        Strava Art
+                    </a>
+                </div>
             </div>
-            <div className="hidden px-4 py-3 sm:flex md:py-4">About</div>
+            <div className="hidden px-4 py-3 sm:flex md:py-4">
+                <Link href="/" replace={true}>
+                    About
+                </Link>
+            </div>
             <div className="hidden px-4 py-3 sm:flex md:py-4">Posts</div>
             <div className="hidden px-4 py-3 sm:flex md:py-4">Resume</div>
+            <div className="hidden px-4 py-3 sm:flex md:py-4">
+                <a href="/StravaArt">Strava Art</a>
+            </div>
             <button
                 className="z-50 flex flex-col px-4 py-3 sm:-z-20 sm:hidden"
                 onClick={handleOpen}
