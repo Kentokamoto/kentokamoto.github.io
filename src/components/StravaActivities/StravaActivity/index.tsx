@@ -3,7 +3,7 @@ import React from 'react'
 const StravaActivity = ({ activityId }: { activityId: number }) => {
     return (
         <>
-            <Script src="https://strava-embeds.com/embed.js"></Script>
+            <Script src="https://strava-embeds.com/embed.js"></Script>(
             <div className="mx-2 my-1 w-xs sm:w-sm">
                 <div
                     className="strava-embed-placeholder"
@@ -13,6 +13,7 @@ const StravaActivity = ({ activityId }: { activityId: number }) => {
                     data-from-embed="false"
                 ></div>
             </div>
+            )
         </>
     )
 }
