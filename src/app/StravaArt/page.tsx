@@ -1,11 +1,13 @@
 'use client'
 
+import Script from 'next/script'
 import StravaActivity from '@/components/StravaActivity'
 
 export default function StravaArt() {
   const blurb = ''
   return (
     <div className="flex flex-col p-8 pb-20">
+      <Script src="https://strava-embeds.com/embed.js"></Script>
       <div>
         <p>{blurb}</p>
       </div>
