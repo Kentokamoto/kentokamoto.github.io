@@ -13,6 +13,8 @@ export default function StravaArt() {
       </div>
       {
         <div className="flex flex-row flex-wrap items-center justify-center">
+          <StravaActivity activityId={15971048708} />
+          <StravaActivity activityId={15560514307} />
           <StravaActivity activityId={15321565084} />
           <StravaActivity activityId={15244547112} />
           <StravaActivity activityId={12925466896} />
