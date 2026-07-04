@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* Self-hosted fonts (replaces next/font/google) */
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+
 @theme {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -24,6 +28,10 @@
     --color-foreground: var(--foreground);
 
     --font-display: 'Oswald', 'sans-serif';
+
+    /* Font family variables previously provided by next/font */
+    --font-geist-sans: 'Geist Variable', sans-serif;
+    --font-geist-mono: 'Geist Mono Variable', monospace;
 }
 
 /*
