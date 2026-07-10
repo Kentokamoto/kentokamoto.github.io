@@ -1,2 +1,3 @@
 name = "kentokamoto-github-io"
 pages_build_output_dir = "build"
+not_found_handling = "single-page-application"
