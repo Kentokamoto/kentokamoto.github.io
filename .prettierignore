@@ -1,5 +1,6 @@
 # Ignore artifacts:
 build
+.svelte-kit
 coverage
 assets
 node_modules
