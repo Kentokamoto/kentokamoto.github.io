@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "kentokamoto-github-io",
+	"name": "personalsite",
 	"compatibility_date": "2026-07-01",
 	"assets": {
 		"directory": "./build",
