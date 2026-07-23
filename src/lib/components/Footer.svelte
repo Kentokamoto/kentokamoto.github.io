@@ -13,14 +13,10 @@
     <div
         class="mx-auto flex max-w-[1100px] flex-col items-start justify-between gap-3 sm:flex-row sm:items-center"
     >
-        <span
-            class="text-nord3 font-[family-name:var(--font-jetbrains-mono)] text-[13px]"
-        >
+        <span class="text-nord3 font-jetbrains-mono text-[13px]">
             © 2026 Kento Okamoto
         </span>
-        <div
-            class="flex gap-5 font-[family-name:var(--font-jetbrains-mono)] text-[13px]"
-        >
+        <div class="font-jetbrains-mono flex gap-5 text-[13px]">
             {#each socials as social (social.name)}
                 <a
                     href={social.href}

@@ -1,21 +1,23 @@
 <script lang="ts">
+    import Container from '$lib/components/ui/Container.svelte'
+    import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
+    import Card from '$lib/components/ui/Card.svelte'
+    import Button from '$lib/components/ui/Button.svelte'
+    import Hatch from '$lib/components/ui/Hatch.svelte'
+
     const sliceUrl = 'https://kentokamoto.github.io/sliceathon/'
 </script>
 
 <!-- HEADER / BIO -->
-<section
-    class="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-7 px-8 pt-12 pb-14 sm:grid-cols-[280px_1fr] sm:gap-14 sm:pt-18 sm:pb-14"
+<Container
+    class="grid grid-cols-1 items-start gap-7 pt-12 pb-14 sm:grid-cols-[280px_1fr] sm:gap-14 sm:pt-18"
 >
-    <div
-        class="hatch border-nord3 flex aspect-square max-w-40 items-center justify-center rounded-xl border sm:max-w-none"
-    >
-        <span
-            class="text-nord9 font-[family-name:var(--font-jetbrains-mono)] text-xs"
-            >portrait</span
-        >
-    </div>
+    <Hatch
+        label="portrait"
+        class="border-nord3 aspect-square max-w-40 rounded-xl border sm:max-w-none"
+    />
     <div>
-        <div class="eyebrow mb-5 text-sm">// ABOUT</div>
+        <Eyebrow class="mb-5 text-sm">// ABOUT</Eyebrow>
         <h1 class="mb-6 text-4xl leading-[1.1] font-bold sm:text-[44px]">
             Kento Okamoto
         </h1>
@@ -33,15 +35,15 @@
             left over.
         </p>
     </div>
-</section>
+</Container>
 
 <!-- SLICE-A-THON -->
-<section class="mx-auto max-w-[1100px] px-8 pb-20 sm:pb-28">
-    <div
-        class="border-nord3 bg-nord1 flex flex-col items-start justify-between gap-6 rounded-xl border p-7 sm:flex-row sm:items-center sm:p-10"
+<Container class="pb-20 sm:pb-28">
+    <Card
+        class="flex flex-col items-start justify-between gap-6 p-7 sm:flex-row sm:items-center sm:p-10"
     >
         <div>
-            <div class="eyebrow text-nord13 mb-2.5">CURRENTLY</div>
+            <Eyebrow color="text-nord13" class="mb-2.5">CURRENTLY</Eyebrow>
             <div class="text-nord6 mb-2 text-[22px] font-semibold">
                 Slice-a-Thon
             </div>
@@ -50,13 +52,13 @@
                 online.
             </p>
         </div>
-        <a
+        <Button
             href={sliceUrl}
             target="_blank"
             rel="noopener"
-            class="bg-nord8 text-nord0 hover:bg-nord7 inline-flex items-center gap-2.5 rounded-md px-5 py-3.5 font-[family-name:var(--font-jetbrains-mono)] text-sm font-semibold whitespace-nowrap transition-colors"
+            class="whitespace-nowrap"
         >
             Visit site →
-        </a>
-    </div>
-</section>
+        </Button>
+    </Card>
+</Container>

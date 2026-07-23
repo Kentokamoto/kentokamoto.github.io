@@ -1,4 +1,8 @@
 <script lang="ts">
+    import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
+    import Card from '$lib/components/ui/Card.svelte'
+    import Hatch from '$lib/components/ui/Hatch.svelte'
+
     // Real activities — the linktree grid opens each one on Strava.
     const activityIds = [
         15971048708, 15560514307, 15321565084, 15244547112, 12925466896,
@@ -22,20 +26,14 @@
     <div class="w-full max-w-[480px] px-4 pt-14 pb-16">
         <!-- PROFILE HEADER -->
         <div class="mb-8 flex flex-col items-center px-2 text-center">
-            <div
-                class="hatch border-nord3 mb-4 flex h-[88px] w-[88px] items-center justify-center rounded-full border"
-            >
-                <span
-                    class="text-nord9 font-[family-name:var(--font-jetbrains-mono)] text-[10px]"
-                    >photo</span
-                >
-            </div>
+            <Hatch
+                label="photo"
+                class="border-nord3 mb-4 h-[88px] w-[88px] rounded-full border"
+            />
             <div class="text-nord6 mb-1.5 text-[22px] font-bold">
                 Kento Okamoto
             </div>
-            <div
-                class="text-nord8 mb-3.5 font-[family-name:var(--font-jetbrains-mono)] text-[13px]"
-            >
+            <div class="font-jetbrains-mono text-nord8 mb-3.5 text-[13px]">
                 software engineer · strava art
             </div>
             <p class="text-nord4 m-0 max-w-[340px] text-sm leading-[1.5]">
@@ -56,7 +54,7 @@
                         class="bg-nord0/80 absolute inset-0 flex flex-col items-center justify-center p-2.5 text-center opacity-0 transition-opacity duration-150 group-hover:opacity-100"
                     >
                         <div
-                            class="text-nord14 font-[family-name:var(--font-jetbrains-mono)] text-[10px]"
+                            class="font-jetbrains-mono text-nord14 text-[10px]"
                         >
                             open on Strava →
                         </div>
@@ -66,29 +64,23 @@
         </div>
 
         <!-- MORE LINKS -->
-        <div
-            class="text-nord8 mb-3.5 pl-1 font-[family-name:var(--font-jetbrains-mono)] text-xs tracking-[0.08em]"
-        >
-            // MORE
-        </div>
+        <Eyebrow class="mb-3.5 pl-1 text-xs">// MORE</Eyebrow>
 
         {#each moreLinks as link (link.label)}
-            <a
+            <Card
                 href={link.href}
                 target={isExternal(link.href) ? '_blank' : undefined}
                 rel={isExternal(link.href) ? 'noopener' : undefined}
-                class="border-nord3 bg-nord1 hover:border-nord8 mb-3 flex items-center justify-between rounded-xl border px-5 py-4 transition-colors"
+                class="mb-3 flex items-center justify-between px-5 py-4"
             >
                 <span class="text-nord6 text-[15px] font-semibold"
                     >{link.label}</span
                 >
                 <span class="text-nord9 text-lg">→</span>
-            </a>
+            </Card>
         {/each}
 
-        <div
-            class="text-nord3 mt-9 text-center font-[family-name:var(--font-jetbrains-mono)] text-xs"
-        >
+        <div class="font-jetbrains-mono text-nord3 mt-9 text-center text-xs">
             © 2026 Kento Okamoto
         </div>
     </div>

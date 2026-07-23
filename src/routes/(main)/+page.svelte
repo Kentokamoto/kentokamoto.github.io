@@ -1,10 +1,16 @@
 <script lang="ts">
+    import Container from '$lib/components/ui/Container.svelte'
+    import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
+    import Card from '$lib/components/ui/Card.svelte'
+    import Button from '$lib/components/ui/Button.svelte'
+    import Hatch from '$lib/components/ui/Hatch.svelte'
+
     const sliceUrl = 'https://kentokamoto.github.io/sliceathon/'
 </script>
 
 <!-- HERO -->
-<section class="mx-auto max-w-[1100px] px-8 pt-16 pb-14 sm:pt-24 sm:pb-20">
-    <div class="eyebrow mb-5 text-sm">// HELLO, I'M</div>
+<Container class="pt-16 pb-14 sm:pt-24 sm:pb-20">
+    <Eyebrow class="mb-5 text-sm">// HELLO, I'M</Eyebrow>
     <h1
         class="mb-6 text-5xl leading-[1.02] font-bold tracking-[-0.02em] sm:text-[88px]"
     >
@@ -17,25 +23,15 @@
         running for a team that isn't mine, but feels like it.
     </p>
     <div class="flex flex-wrap gap-4">
-        <a
-            href="/StravaArt"
-            class="bg-nord8 text-nord0 hover:bg-nord7 inline-flex items-center gap-2.5 rounded-md px-5 py-3.5 font-[family-name:var(--font-jetbrains-mono)] text-sm font-semibold transition-colors"
-        >
-            View Strava Art →
-        </a>
-        <a
-            href="/about"
-            class="border-nord3 text-nord6 hover:border-nord8 inline-flex items-center gap-2.5 rounded-md border bg-transparent px-5 py-3.5 font-[family-name:var(--font-jetbrains-mono)] text-sm font-semibold transition-colors"
-        >
-            About me
-        </a>
+        <Button href="/StravaArt">View Strava Art →</Button>
+        <Button href="/about" variant="secondary">About me</Button>
     </div>
-</section>
+</Container>
 
 <!-- CURRENT JOURNEY -->
-<section class="mx-auto max-w-[1100px] px-8 pb-16 sm:pb-24">
-    <div class="border-nord3 bg-nord1 rounded-xl border p-7 sm:p-12">
-        <div class="eyebrow text-nord7 mb-4">// CURRENT JOURNEY</div>
+<Container class="pb-16 sm:pb-24">
+    <Card class="p-7 sm:p-12">
+        <Eyebrow color="text-nord7" class="mb-4">// CURRENT JOURNEY</Eyebrow>
         <p
             class="text-nord4 m-0 max-w-[760px] text-base leading-[1.75] sm:text-lg"
         >
@@ -46,23 +42,13 @@
             keep alive behind the scenes. Same instinct either way: build the
             thing, make it run, keep it running.
         </p>
-    </div>
-</section>
+    </Card>
+</Container>
 
 <!-- HIGHLIGHTS -->
-<section
-    class="mx-auto grid max-w-[1100px] grid-cols-1 gap-6 px-8 pb-20 sm:grid-cols-2 sm:pb-28"
->
-    <a
-        href="/StravaArt"
-        class="border-nord3 bg-nord1 hover:border-nord8 block overflow-hidden rounded-xl border transition-colors"
-    >
-        <div class="hatch flex h-40 items-center justify-center">
-            <span
-                class="text-nord9 font-[family-name:var(--font-jetbrains-mono)] text-[13px]"
-                >route preview</span
-            >
-        </div>
+<Container class="grid grid-cols-1 gap-6 pb-20 sm:grid-cols-2 sm:pb-28">
+    <Card href="/StravaArt" class="block overflow-hidden">
+        <Hatch label="route preview" class="h-40" />
         <div class="p-6">
             <div class="text-nord6 mb-2 text-xl font-semibold">Strava Art</div>
             <p class="text-nord4 m-0 text-[15px] leading-[1.5]">
@@ -70,12 +56,10 @@
                 personal pieces.
             </p>
         </div>
-    </a>
-    <div
-        class="border-nord3 bg-nord1 flex flex-col justify-between rounded-xl border p-6"
-    >
+    </Card>
+    <Card class="flex flex-col justify-between p-6">
         <div>
-            <div class="eyebrow text-nord13 mb-3">CURRENTLY</div>
+            <Eyebrow color="text-nord13" class="mb-3">CURRENTLY</Eyebrow>
             <div class="text-nord6 mb-2 text-xl font-semibold">
                 Slice-a-Thon
             </div>
@@ -87,9 +71,9 @@
             href={sliceUrl}
             target="_blank"
             rel="noopener"
-            class="text-nord8 hover:text-nord7 font-[family-name:var(--font-jetbrains-mono)] text-sm"
+            class="font-jetbrains-mono text-nord8 hover:text-nord7 text-sm"
         >
             sliceathon →
         </a>
-    </div>
-</section>
+    </Card>
+</Container>

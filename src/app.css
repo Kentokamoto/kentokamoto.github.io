@@ -80,12 +80,11 @@ svg {
 
 /* Shared design motifs ----------------------------------------------- */
 
-/* Mono `// LABEL` eyebrow used across sections. */
+/* Mono `// LABEL` eyebrow base (color supplied by the Eyebrow component). */
 .eyebrow {
     font-family: var(--font-jetbrains-mono);
     font-size: 0.8125rem;
     letter-spacing: 0.08em;
-    color: var(--color-nord8);
 }
 
 /* Diagonal hatched placeholder standing in for route images / photos. */

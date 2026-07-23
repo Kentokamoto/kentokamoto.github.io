@@ -20,13 +20,11 @@
 >
     <a
         href="/"
-        class="text-nord6 font-[family-name:var(--font-jetbrains-mono)] text-[15px] font-semibold tracking-[0.02em]"
+        class="text-nord6 font-jetbrains-mono text-[15px] font-semibold tracking-[0.02em]"
     >
         kento<span class="text-nord8">.</span>okamoto
     </a>
-    <div
-        class="flex gap-5 font-[family-name:var(--font-jetbrains-mono)] text-[13px] sm:gap-7 sm:text-sm"
-    >
+    <div class="font-jetbrains-mono flex gap-5 text-[13px] sm:gap-7 sm:text-sm">
         {#each links as link (link.href)}
             <a
                 href={link.href}

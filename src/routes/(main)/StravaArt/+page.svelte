@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte'
     import StravaActivity from '$lib/components/StravaActivity.svelte'
+    import Container from '$lib/components/ui/Container.svelte'
+    import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
 
     const activityIds = [
         15971048708, 15560514307, 15321565084, 15244547112, 12925466896,
@@ -24,8 +26,8 @@
 </script>
 
 <!-- HEADER -->
-<section class="mx-auto max-w-[1100px] px-8 pt-12 pb-10 sm:pt-18 sm:pb-14">
-    <div class="eyebrow mb-5 text-sm">// PORTFOLIO</div>
+<Container class="pt-12 pb-10 sm:pt-18 sm:pb-14">
+    <Eyebrow class="mb-5 text-sm">// PORTFOLIO</Eyebrow>
     <h1
         class="mb-5 text-4xl leading-[1.05] font-bold tracking-[-0.01em] sm:text-[56px]"
     >
@@ -38,14 +40,14 @@
         A mix of brand collaborations and pieces made just for fun — each one
         links out to the real activity on Strava.
     </p>
-</section>
+</Container>
 
 <!-- GALLERY -->
-<section class="mx-auto max-w-[1100px] px-8 pb-20 sm:pb-28">
-    <div class="eyebrow text-nord13 mb-6">// THE GALLERY</div>
+<Container class="pb-20 sm:pb-28">
+    <Eyebrow color="text-nord13" class="mb-6">// THE GALLERY</Eyebrow>
     <div class="flex flex-row flex-wrap items-start justify-center gap-2">
         {#each activityIds as activityId (activityId)}
             <StravaActivity {activityId} />
         {/each}
     </div>
-</section>
+</Container>
