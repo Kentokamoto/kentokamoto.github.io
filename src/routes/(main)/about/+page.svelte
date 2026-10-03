@@ -3,21 +3,21 @@
     import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
     import Card from '$lib/components/ui/Card.svelte'
     import Button from '$lib/components/ui/Button.svelte'
-    import portrait from '$lib/assets/portrait.jpeg?w=560;280&enhanced'
+    import portrait from '$lib/assets/portrait.jpeg?w=640;320&enhanced'
 
     const sliceUrl = 'https://kentokamoto.github.io/sliceathon/'
 </script>
 
 <!-- HEADER / BIO -->
 <Container
-    class="grid grid-cols-1 items-start gap-7 pt-12 pb-14 sm:grid-cols-[280px_1fr] sm:gap-14 sm:pt-18"
+    class="grid grid-cols-1 items-start gap-7 pt-12 pb-14 sm:grid-cols-[320px_1fr] sm:gap-14 sm:pt-18"
 >
     <enhanced:img
         src={portrait}
         alt="Kento Okamoto"
-        sizes="(min-width: 640px) 280px, 160px"
+        sizes="(min-width: 640px) 320px, 256px"
         fetchpriority="high"
-        class="border-nord3 aspect-square w-full max-w-40 rounded-xl border object-cover sm:max-w-none"
+        class="border-nord3 mx-auto aspect-square w-full max-w-64 rounded-xl border object-cover sm:mx-0 sm:max-w-none"
     />
     <div>
         <Eyebrow class="mb-5 text-sm">// ABOUT</Eyebrow>
