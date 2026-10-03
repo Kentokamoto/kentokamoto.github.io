@@ -1,6 +1,6 @@
 <script lang="ts">
     // Renders a decoded route polyline as an SVG path in a square viewBox.
-    // `path` comes pre-computed from the server (see lib/strava.ts).
+    // Build `path` with polylineToPath (lib/strava.ts).
     interface Props {
         path: string | null
         /** Tailwind text-color class — the stroke uses currentColor. */
@@ -26,6 +26,6 @@
             <path d={path} />
         </svg>
     {:else}
-        <span class="font-jetbrains-mono text-[11px] text-nord9">no route</span>
+        <span class="font-jetbrains-mono text-nord9 text-[11px]">no route</span>
     {/if}
 </div>

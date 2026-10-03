@@ -25,3 +25,6 @@ vite.config.ts.timestamp-*
 # Cloudflare
 .wrangler
 .dev.vars*
+
+# Saved /art.json snapshots (STRAVA_FIXTURE)
+fixtures/*.local.json

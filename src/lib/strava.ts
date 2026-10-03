@@ -1,88 +1,88 @@
 import polyline from '@mapbox/polyline'
+import { stripArtTag, type StravaActivity } from './strava-api'
 
 // ---------------------------------------------------------------------------
-// Strava API — build-time helpers.
+// Strava Art — build-time data.
 //
-// These run only on the server during prerender (see StravaArt/+page.server.ts).
-// Nothing here (tokens, secrets, the polyline lib) is shipped to the browser;
-// only the decoded SVG path + plain metadata are serialized into the page.
+// The build reads cached activities from the strava-art Worker's /art.json
+// (see StravaArt/+page.server.ts) and never calls Strava itself, so builds
+// don't spend API rate limit or need Strava credentials. Presentation (units, pace, the map) is
+// the card's job — the format/polyline helpers here are optional utilities.
 // ---------------------------------------------------------------------------
 
-export interface StravaConfig {
-    clientId: string
-    clientSecret: string
-    refreshToken: string
-}
-
-export interface RoutePiece {
+/** Raw, render-agnostic activity data for the Strava Art cards. */
+export interface ArtActivity {
     id: number
     name: string
-    distanceMi: string
-    duration: string
-    /** SVG path string in a 0 0 100 100 viewBox, or null when no GPS map. */
-    path: string | null
-    /** Optional brand/commission tag; renders the card with a gold accent. */
+    /** Description with the #stravaart tag stripped. */
+    description: string
+    sportType: string
+    startDate: string // ISO 8601
+    /** Local wall-clock time; format with timeZone 'UTC' to show it as-is. */
+    startDateLocal: string
+    distance: number // meters
+    movingTime: number // seconds
+    elapsedTime: number // seconds
+    elevationGain: number // meters
+    kudos: number
+    /** Encoded summary polyline, or null when the activity has no GPS map. */
+    polyline: string | null
+    /** Optional brand/commission tag. */
     brand?: string
     href: string
 }
 
-interface StravaActivity {
-    id: number
-    name: string
-    distance: number // meters
-    moving_time: number // seconds
-    map?: { summary_polyline?: string | null }
-}
-
-/** Exchange the long-lived refresh token for a short-lived access token. */
-async function getAccessToken(
-    cfg: StravaConfig,
-    fetchFn: typeof fetch
-): Promise<string> {
-    const res = await fetchFn('https://www.strava.com/oauth/token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            client_id: cfg.clientId,
-            client_secret: cfg.clientSecret,
-            grant_type: 'refresh_token',
-            refresh_token: cfg.refreshToken,
-        }),
-    })
-    if (!res.ok) {
-        const body = await res.text().catch(() => '')
-        throw new Error(
-            `Strava token exchange failed: ${res.status} ${res.statusText} — ${body}`
-        )
+function toArtActivity(act: StravaActivity, brand?: string): ArtActivity {
+    return {
+        id: act.id,
+        name: act.name,
+        description: stripArtTag(act.description),
+        sportType: act.sport_type,
+        startDate: act.start_date,
+        startDateLocal: act.start_date_local,
+        distance: act.distance,
+        movingTime: act.moving_time,
+        elapsedTime: act.elapsed_time,
+        elevationGain: act.total_elevation_gain,
+        kudos: act.kudos_count,
+        polyline: act.map?.summary_polyline ?? null,
+        brand,
+        href: `https://www.strava.com/activities/${act.id}`,
     }
-    const json = (await res.json()) as { access_token: string }
-    return json.access_token
-}
-
-/** Fetch one activity by id. Returns null on any error so a single bad id
- *  never fails the whole build. */
-async function fetchActivity(
-    id: number,
-    token: string,
-    fetchFn: typeof fetch
-): Promise<StravaActivity | null> {
-    const res = await fetchFn(`https://www.strava.com/api/v3/activities/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-    })
-    if (!res.ok) {
-        console.warn(`[strava] activity ${id} fetch failed: ${res.status}`)
-        return null
-    }
-    return (await res.json()) as StravaActivity
 }
 
 const METERS_PER_MILE = 1609.344
 
-function formatDistance(meters: number): string {
-    return `${(meters / METERS_PER_MILE).toFixed(1)} mi`
+export function formatDistance(meters: number): string {
+    return `${(meters / METERS_PER_MILE).toFixed(2)} mi`
 }
 
-function formatDuration(seconds: number): string {
+/** Foot-based sports show pace (min/mi); wheels show speed (mph). */
+export function formatPaceOrSpeed(
+    sportType: string,
+    meters: number,
+    seconds: number
+): { label: string; value: string } | null {
+    if (!meters || !seconds) return null
+    const miles = meters / METERS_PER_MILE
+    if (/Run|Walk|Hike/.test(sportType)) {
+        const perMile = Math.round(seconds / miles)
+        return { label: 'Pace', value: `${formatDuration(perMile)} /mi` }
+    }
+    if (/Ride|Skate|Ski/.test(sportType)) {
+        return {
+            label: 'Speed',
+            value: `${(miles / (seconds / 3600)).toFixed(1)} mph`,
+        }
+    }
+    return null
+}
+
+export function formatElevation(meters: number): string {
+    return `${Math.round(meters * 3.28084).toLocaleString('en-US')} ft`
+}
+
+export function formatDuration(seconds: number): string {
     const h = Math.floor(seconds / 3600)
     const m = Math.floor((seconds % 3600) / 60)
     const s = seconds % 60
@@ -130,46 +130,30 @@ export function polylineToPath(
         .join(' ')
 }
 
-export interface PieceSeed {
-    id: number
-    brand?: string
+/** Shape cached Strava activities into ArtActivity records, newest first. */
+export function toArtActivities(
+    activities: StravaActivity[],
+    brands: Record<number, string>
+): ArtActivity[] {
+    return activities
+        .map((act) => toArtActivity(act, brands[act.id]))
+        .sort((a, b) => b.startDate.localeCompare(a.startDate))
 }
 
-/**
- * Fetch and shape the curated activities into render-ready RoutePieces.
- * Returns [] (never throws) so the build succeeds even without credentials
- * or when the API is unreachable — the page falls back to embeds in that case.
- */
-export async function fetchRoutePieces(
-    seeds: PieceSeed[],
-    cfg: Partial<StravaConfig>,
+/** Fetch cached activities from the strava-art Worker's /art.json.
+ *  Returns [] when unset or unreachable so the build still succeeds. */
+export async function fetchArtIndex(
+    url: string | undefined,
     fetchFn: typeof fetch = fetch
-): Promise<RoutePiece[]> {
-    if (!cfg.clientId || !cfg.clientSecret || !cfg.refreshToken) return []
-
-    let token: string
+): Promise<StravaActivity[]> {
+    if (!url) return []
     try {
-        token = await getAccessToken(cfg as StravaConfig, fetchFn)
+        const res = await fetchFn(url)
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`)
+        const json = (await res.json()) as { activities?: StravaActivity[] }
+        return Array.isArray(json.activities) ? json.activities : []
     } catch (err) {
-        console.warn('[strava] skipping build-time fetch:', err)
+        console.warn('[strava] art index unavailable:', err)
         return []
     }
-
-    const results = await Promise.all(
-        seeds.map(async (seed): Promise<RoutePiece | null> => {
-            const act = await fetchActivity(seed.id, token, fetchFn)
-            if (!act) return null
-            return {
-                id: act.id,
-                name: act.name,
-                distanceMi: formatDistance(act.distance),
-                duration: formatDuration(act.moving_time),
-                path: polylineToPath(act.map?.summary_polyline),
-                brand: seed.brand,
-                href: `https://www.strava.com/activities/${act.id}`,
-            }
-        })
-    )
-
-    return results.filter((r): r is RoutePiece => r !== null)
 }

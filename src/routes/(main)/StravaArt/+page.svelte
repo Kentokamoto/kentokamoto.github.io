@@ -1,65 +1,40 @@
 <script lang="ts">
-    import { onMount } from 'svelte'
-    import StravaActivity from '$lib/components/StravaActivity.svelte'
     import Container from '$lib/components/ui/Container.svelte'
     import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
-    import Card from '$lib/components/ui/Card.svelte'
-    import RouteArt from '$lib/components/ui/RouteArt.svelte'
-    import type { RoutePiece } from '$lib/strava'
+    import { formatDistance, type ArtActivity } from '$lib/strava'
 
     let { data } = $props()
 
-    const brandPieces = $derived(data.pieces.filter((p) => p.brand))
-    const personalPieces = $derived(data.pieces.filter((p) => !p.brand))
-    const hasArt = $derived(data.pieces.length > 0)
-
-    onMount(() => {
-        // Only load the legacy embed script when we're falling back (no API data).
-        if (hasArt) return
-        if (
-            !document.querySelector(
-                'script[src="https://strava-embeds.com/embed.js"]'
-            )
-        ) {
-            const script = document.createElement('script')
-            script.src = 'https://strava-embeds.com/embed.js'
-            document.body.appendChild(script)
-        }
-    })
+    const brandPieces = $derived(data.activities.filter((a) => a.brand))
+    const personalPieces = $derived(data.activities.filter((a) => !a.brand))
+    const hasArt = $derived(data.activities.length > 0)
 </script>
 
-{#snippet pieceCard(piece: RoutePiece, aspect: string)}
-    <Card
-        href={piece.href}
-        target="_blank"
-        rel="noopener"
-        class={`block overflow-hidden ${piece.brand ? 'border-nord13! hover:border-nord13!' : ''}`}
-    >
-        <div class="flex {aspect} items-center justify-center bg-nord2">
-            <RouteArt
-                path={piece.path}
-                color={piece.brand ? 'text-nord13' : 'text-nord8'}
-                class="h-full w-full p-4"
-            />
-        </div>
-        <div class="p-5">
-            {#if piece.brand}
-                <div
-                    class="mb-3 inline-block rounded bg-nord13 px-2.5 py-1 font-jetbrains-mono text-[11px] font-semibold tracking-[0.04em] text-nord0"
+<!-- Placeholder list until the activity cards are designed. -->
+{#snippet activityList(items: ArtActivity[])}
+    <ul class="divide-nord3 border-nord3 divide-y border-y">
+        {#each items as activity (activity.id)}
+            <li>
+                <a
+                    href={activity.href}
+                    target="_blank"
+                    rel="noopener"
+                    class="group flex items-baseline justify-between gap-4 py-3"
                 >
-                    {piece.brand}
-                </div>
-            {/if}
-            <div class="mb-1.5 text-lg font-semibold text-nord6">
-                {piece.name}
-            </div>
-            <div class="flex gap-4 font-jetbrains-mono text-xs text-nord14">
-                <span>{piece.distanceMi}</span>
-                <span class="text-nord3">·</span>
-                <span>{piece.duration}</span>
-            </div>
-        </div>
-    </Card>
+                    <span
+                        class="text-nord6 group-hover:text-nord8 font-semibold transition-colors"
+                        >{activity.name}</span
+                    >
+                    <span
+                        class="font-jetbrains-mono text-nord4 shrink-0 text-xs"
+                    >
+                        {activity.startDateLocal.slice(0, 10)} ·
+                        {formatDistance(activity.distance)}
+                    </span>
+                </a>
+            </li>
+        {/each}
+    </ul>
 {/snippet}
 
 <!-- HEADER -->
@@ -70,7 +45,9 @@
     >
         Strava Art
     </h1>
-    <p class="m-0 max-w-[680px] text-[17px] leading-[1.6] text-nord4 sm:text-xl">
+    <p
+        class="text-nord4 m-0 max-w-[680px] text-[17px] leading-[1.6] sm:text-xl"
+    >
         Routes plotted mile-by-mile until the map draws something else entirely.
         A mix of brand collaborations and pieces made just for fun — each one
         links out to the real activity on Strava.
@@ -84,33 +61,27 @@
             <Eyebrow color="text-nord13" class="mb-6"
                 >// BRAND COLLABORATIONS</Eyebrow
             >
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {#each brandPieces as piece (piece.id)}
-                    {@render pieceCard(piece, 'aspect-[16/10]')}
-                {/each}
-            </div>
+            {@render activityList(brandPieces)}
         </Container>
     {/if}
 
     <!-- PERSONAL PIECES -->
     <Container class="pb-20 sm:pb-28">
         <Eyebrow class="mb-6">// PERSONAL PIECES</Eyebrow>
-        <div
-            class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6"
-        >
-            {#each personalPieces as piece (piece.id)}
-                {@render pieceCard(piece, 'aspect-square')}
-            {/each}
-        </div>
+        {@render activityList(personalPieces)}
     </Container>
 {:else}
-    <!-- FALLBACK: legacy embeds (no Strava credentials configured) -->
+    <!-- FALLBACK: art cache empty or unreachable at build time -->
     <Container class="pb-20 sm:pb-28">
-        <Eyebrow color="text-nord13" class="mb-6">// THE GALLERY</Eyebrow>
-        <div class="flex flex-row flex-wrap items-start justify-center gap-2">
-            {#each data.fallbackIds as activityId (activityId)}
-                <StravaActivity {activityId} />
-            {/each}
-        </div>
+        <p class="text-nord4">
+            The gallery is taking a rest day. In the meantime, see every route
+            on
+            <a
+                href="https://www.strava.com/athletes/43773325"
+                target="_blank"
+                rel="noopener"
+                class="text-nord8 hover:underline">Strava</a
+            >.
+        </p>
     </Container>
 {/if}
