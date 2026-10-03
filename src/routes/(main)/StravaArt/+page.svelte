@@ -46,11 +46,22 @@
         Strava Art
     </h1>
     <p
-        class="text-nord4 m-0 max-w-[680px] text-[17px] leading-[1.6] sm:text-xl"
+        class="text-nord4 m-0 mb-5 max-w-[680px] text-base leading-[1.75] sm:text-lg"
     >
-        Routes plotted mile-by-mile until the map draws something else entirely.
-        A mix of brand collaborations and pieces made just for fun — each one
-        links out to the real activity on Strava.
+        The city streets are my canvas; I just piece them together into art that
+        I run. I've been doing GPS art since 2023, usually one route a month,
+        sometimes two if I'm feeling extra inspired. It started as a way to make
+        my longer runs more interesting, but soon turned into a fun project for
+        myself.
+    </p>
+    <p class="text-nord4 m-0 max-w-[680px] text-base leading-[1.75] sm:text-lg">
+        My current style sticks to roads, trails and paths only, in one
+        continuous line, with no clever tricks like stopping and starting my
+        watch to get around obstacles. When a route is too long to finish in
+        daylight, or I simply run out of energy, I'll split it across multiple
+        days, picking up exactly where I left off. I've also been lucky enough
+        to have a couple of brands reach out to collaborate, which has been such
+        a cool experience!
     </p>
 </Container>
 

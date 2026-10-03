@@ -3,7 +3,7 @@
     import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
     import Card from '$lib/components/ui/Card.svelte'
     import Button from '$lib/components/ui/Button.svelte'
-    import Hatch from '$lib/components/ui/Hatch.svelte'
+    import portrait from '$lib/assets/portrait.jpeg?w=560;280&enhanced'
 
     const sliceUrl = 'https://kentokamoto.github.io/sliceathon/'
 </script>
@@ -12,9 +12,12 @@
 <Container
     class="grid grid-cols-1 items-start gap-7 pt-12 pb-14 sm:grid-cols-[280px_1fr] sm:gap-14 sm:pt-18"
 >
-    <Hatch
-        label="portrait"
-        class="border-nord3 aspect-square max-w-40 rounded-xl border sm:max-w-none"
+    <enhanced:img
+        src={portrait}
+        alt="Kento Okamoto"
+        sizes="(min-width: 640px) 280px, 160px"
+        fetchpriority="high"
+        class="border-nord3 aspect-square w-full max-w-40 rounded-xl border object-cover sm:max-w-none"
     />
     <div>
         <Eyebrow class="mb-5 text-sm">// ABOUT</Eyebrow>
@@ -22,43 +25,33 @@
             Kento Okamoto
         </h1>
         <p class="text-nord4 mb-5 text-base leading-[1.75] sm:text-lg">
-            Most of my day is spent building software — the kind of work that
-            rarely photographs well, so this site leans on the parts of my life
-            that do. Lately that means routes plotted to draw shapes across a
-            city, and a side commitment to a running team whose race calendar I
-            keep alive behind the scenes. Same instinct either way: build the
-            thing, make it run, keep it running.
+            I'm a software engineer in Seattle, currently at
+            <a
+                href="https://www.headway.co"
+                target="_blank"
+                rel="noopener"
+                class=" text-nord8 hover:text-nord7 hover:underline">Headway</a
+            >. Early in my career I jumped around the tech stack, working on
+            platform software, payment authorization, and now full-stack web
+            development, which is where I feel most comfortable and where I want
+            to keep growing.
         </p>
-        <p class="text-nord4 m-0 text-base leading-[1.75] sm:text-lg">
-            Software engineer first — based in Seattle, by way of the Bay Area
-            and Denver. Everything else on this site is what I do with the time
-            left over.
+
+        <p class="text-nord4 mb-5 text-base leading-[1.75] sm:text-lg">
+            In college, I was an athlete on the track and field team, mainly as
+            a sprinter and long jumper. Strangely, I've since become more of a
+            long-distance runner, with a couple of 50Ks behind me. Funny how
+            things change, right?
+        </p>
+
+        <p class="text-nord4 mb-5 text-base leading-[1.75] sm:text-lg">
+            I started turning routes into art in 2023 as a way to make my longer
+            runs more interesting. I'd heard of GPS art (now more commonly known
+            as Strava art), so I sat down and plotted out a couple of routes
+            around Seattle. What I thought would be a short-lived bit turned
+            into a monthly project. I still find the drawing and planning
+            process a ton of fun, and I hope the people who follow me on Strava
+            and Instagram find some joy in the routes I share there.
         </p>
     </div>
-</Container>
-
-<!-- SLICE-A-THON -->
-<Container class="pb-20 sm:pb-28">
-    <Card
-        class="flex flex-col items-start justify-between gap-6 p-7 sm:flex-row sm:items-center sm:p-10"
-    >
-        <div>
-            <Eyebrow color="text-nord13" class="mb-2.5">CURRENTLY</Eyebrow>
-            <div class="text-nord6 mb-2 text-[22px] font-semibold">
-                Slice-a-Thon
-            </div>
-            <p class="text-nord4 m-0 max-w-[520px] text-[15px] leading-[1.5]">
-                I'm the current developer keeping this running team's races
-                online.
-            </p>
-        </div>
-        <Button
-            href={sliceUrl}
-            target="_blank"
-            rel="noopener"
-            class="whitespace-nowrap"
-        >
-            Visit site →
-        </Button>
-    </Card>
 </Container>
