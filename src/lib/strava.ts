@@ -146,12 +146,21 @@ export async function fetchArtIndex(
     url: string | undefined,
     fetchFn: typeof fetch = fetch
 ): Promise<StravaActivity[]> {
-    if (!url) return []
+    if (!url) {
+        console.warn('[strava] STRAVA_ART_INDEX_URL is not set; no art')
+        return []
+    }
     try {
         const res = await fetchFn(url)
         if (!res.ok) throw new Error(`${res.status} ${res.statusText}`)
         const json = (await res.json()) as { activities?: StravaActivity[] }
-        return Array.isArray(json.activities) ? json.activities : []
+        if (!Array.isArray(json.activities)) {
+            throw new Error('response has no `activities` array')
+        }
+        console.info(
+            `[strava] ${json.activities.length} activities from ${url}`
+        )
+        return json.activities
     } catch (err) {
         console.warn('[strava] art index unavailable:', err)
         return []
