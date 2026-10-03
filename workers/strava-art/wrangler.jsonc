@@ -1,0 +1,17 @@
+{
+	"$schema": "../../node_modules/wrangler/config-schema.json",
+	"name": "strava-art",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-07-01",
+	"kv_namespaces": [
+		{
+			"binding": "ART",
+			// Replace with the id printed by: npx wrangler kv namespace create ART
+			"id": "e2c634f8ae7347a58f1d4342e9bfa040",
+			"remote": true
+		},
+	],
+	// Secrets (npx wrangler secret put <NAME>; locally in .dev.vars):
+	//   STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN,
+	//   SWEEP_TOKEN, BUILD_HOOK_URL
+}
