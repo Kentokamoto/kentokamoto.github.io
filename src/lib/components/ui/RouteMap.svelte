@@ -29,7 +29,7 @@
         class: className = '',
     }: Props = $props()
 
-    const STYLE_URL = 'https://tiles.openfreemap.org/styles/fiord'
+    const STYLE_URL = 'https://tiles.openfreemap.org/styles/positron'
 
     const path = $derived(polylineToPath(encoded))
     // GeoJSON wants [lng, lat]; polyline.decode returns [lat, lng].
@@ -91,7 +91,7 @@
                     type: 'line',
                     source: 'route',
                     layout,
-                    paint: { 'line-color': '#2e3440', 'line-width': 6 },
+                    paint: { 'line-color': '#ffffff', 'line-width': 6 },
                 })
                 map!.addLayer({
                     id: 'route',
@@ -100,6 +100,12 @@
                     layout,
                     paint: { 'line-color': lineColor, 'line-width': 3 },
                 })
+                // The compact attribution starts expanded and only collapses
+                // on drag, which never happens on a non-interactive map.
+                // Collapse it to the ⓘ button (still required, click to show).
+                container
+                    .querySelector('.maplibregl-compact-show')
+                    ?.classList.remove('maplibregl-compact-show')
                 map!.once('idle', () => (ready = true))
             })
         }
