@@ -10,7 +10,7 @@
     import polyline from '@mapbox/polyline'
     import RouteArt from './RouteArt.svelte'
     import { polylineToPath } from '$lib/strava'
-    import type { Map as MapLibreMap } from 'maplibre-gl'
+    import type { LngLatBoundsLike, Map as MapLibreMap } from 'maplibre-gl'
 
     interface Props {
         /** Encoded (Strava summary) polyline. */
@@ -62,17 +62,29 @@
             // Resolve the Tailwind color class to a real color for WebGL.
             const lineColor = getComputedStyle(root).color
 
+            const bounds: LngLatBoundsLike = [
+                [Math.min(...lngs), Math.min(...lats)],
+                [Math.max(...lngs), Math.max(...lats)],
+            ]
+            const fit = { padding: 24 }
+
             map = new Map({
                 container,
                 style: STYLE_URL,
-                bounds: [
-                    [Math.min(...lngs), Math.min(...lats)],
-                    [Math.max(...lngs), Math.max(...lats)],
-                ],
-                fitBoundsOptions: { padding: 24 },
+                bounds,
+                fitBoundsOptions: fit,
                 interactive,
                 attributionControl: { compact: true },
             })
+            // The initial fit only holds for the container size at creation;
+            // on resize MapLibre keeps center/zoom, which crops the route when
+            // the card shrinks (mobile layout settling, rotation, URL bar).
+            // Re-fit so the whole route always shows — unless the user can pan.
+            if (!interactive) {
+                map.on('resize', () =>
+                    map?.fitBounds(bounds, { ...fit, animate: false })
+                )
+            }
             map.on('load', () => {
                 map!.addSource('route', {
                     type: 'geojson',
