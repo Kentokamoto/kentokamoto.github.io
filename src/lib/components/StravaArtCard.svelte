@@ -2,13 +2,12 @@
     // Strava-style activity card: athlete header, title + description, stat
     // row, route map, and a kudos / "View on Strava" footer. Takes the raw
     // ArtActivity from the build and does all formatting here.
-    import RouteArt from '$lib/components/ui/RouteArt.svelte'
+    import RouteMap from '$lib/components/ui/RouteMap.svelte'
     import {
         formatDistance,
         formatDuration,
         formatElevation,
         formatPaceOrSpeed,
-        polylineToPath,
         type ArtActivity,
     } from '$lib/strava'
 
@@ -61,8 +60,6 @@
                 : null,
         ].filter((s) => s !== null)
     )
-
-    const path = $derived(polylineToPath(activity.polyline))
 </script>
 
 <article
@@ -128,20 +125,22 @@
         {/each}
     </dl>
 
-    <!-- Route map -->
-    <a
-        href={activity.href}
-        target="_blank"
-        rel="noopener"
-        class="border-nord3 bg-nord0 block aspect-[4/3] border-y"
-        aria-label="Route for {activity.name} on Strava"
-    >
-        <RouteArt
-            {path}
+    <!-- Route map. The link is an overlay rather than a wrapper so the
+         map's attribution links aren't nested inside another <a>. -->
+    <div class="border-nord3 bg-nord0 relative aspect-[4/3] border-y">
+        <RouteMap
+            encoded={activity.polyline}
             color={activity.brand ? 'text-nord13' : 'text-nord8'}
-            class="h-full w-full p-6"
+            class="h-full w-full"
         />
-    </a>
+        <a
+            href={activity.href}
+            target="_blank"
+            rel="noopener"
+            class="absolute inset-0 z-[1]"
+            aria-label="Route for {activity.name} on Strava"
+        ></a>
+    </div>
 
     <!-- Footer -->
     <footer
