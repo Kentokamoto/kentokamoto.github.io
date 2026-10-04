@@ -1,7 +1,8 @@
 <script lang="ts">
     import Container from '$lib/components/ui/Container.svelte'
     import Eyebrow from '$lib/components/ui/Eyebrow.svelte'
-    import { formatDistance, type ArtActivity } from '$lib/strava'
+    import StravaArtCard from '$lib/components/StravaArtCard.svelte'
+    import type { ArtActivity } from '$lib/strava'
 
     let { data } = $props()
 
@@ -10,31 +11,13 @@
     const hasArt = $derived(data.activities.length > 0)
 </script>
 
-<!-- Placeholder list until the activity cards are designed. -->
-{#snippet activityList(items: ArtActivity[])}
-    <ul class="divide-nord3 border-nord3 divide-y border-y">
+<!-- Brand pieces: 2 columns. Personal pieces: 3, then 2, then 1. -->
+{#snippet activityList(items: ArtActivity[], cols: string)}
+    <div class="grid gap-6 {cols}">
         {#each items as activity (activity.id)}
-            <li>
-                <a
-                    href={activity.href}
-                    target="_blank"
-                    rel="noopener"
-                    class="group flex items-baseline justify-between gap-4 py-3"
-                >
-                    <span
-                        class="text-nord6 group-hover:text-nord8 font-semibold transition-colors"
-                        >{activity.name}</span
-                    >
-                    <span
-                        class="font-jetbrains-mono text-nord4 shrink-0 text-xs"
-                    >
-                        {activity.startDateLocal.slice(0, 10)} ·
-                        {formatDistance(activity.distance)}
-                    </span>
-                </a>
-            </li>
+            <StravaArtCard {activity} />
         {/each}
-    </ul>
+    </div>
 {/snippet}
 
 <!-- HEADER -->
@@ -72,14 +55,17 @@
             <Eyebrow color="text-nord13" class="mb-6"
                 >// BRAND COLLABORATIONS</Eyebrow
             >
-            {@render activityList(brandPieces)}
+            {@render activityList(brandPieces, 'md:grid-cols-2')}
         </Container>
     {/if}
 
     <!-- PERSONAL PIECES -->
     <Container class="pb-20 sm:pb-28">
         <Eyebrow class="mb-6">// PERSONAL PIECES</Eyebrow>
-        {@render activityList(personalPieces)}
+        {@render activityList(
+            personalPieces,
+            'min-[480px]:grid-cols-2 md:grid-cols-3'
+        )}
     </Container>
 {:else}
     <!-- FALLBACK: art cache empty or unreachable at build time -->

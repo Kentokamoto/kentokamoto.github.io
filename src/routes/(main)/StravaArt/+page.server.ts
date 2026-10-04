@@ -9,7 +9,13 @@ import type { PageServerLoad } from './$types'
 
 // Commissioned pieces, keyed by activity id. These group under
 // "Brand Collaborations".
-const BRANDS: Record<number, string> = {}
+const BRANDS: Record<number, string> = {
+    12479331590: 'Shout outs on LinkedIn',
+    17223476180:
+        'Brand collaboration with the weighted apparel company OMORPHO for their social media',
+    17296778475:
+        'Commissioned run by Strava. This was as a fun promotion for the 2026 Super Bowl',
+}
 
 export const load: PageServerLoad = async ({ fetch }) => {
     // STRAVA_FIXTURE: a saved /art.json for offline builds (see .env.example).
