@@ -82,6 +82,16 @@ export function formatElevation(meters: number): string {
     return `${Math.round(meters * 3.28084).toLocaleString('en-US')} ft`
 }
 
+/** "Mar 14, 2026" from startDateLocal, shown as the athlete's local date. */
+export function formatDate(isoLocal: string): string {
+    return new Date(isoLocal).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        timeZone: 'UTC',
+    })
+}
+
 export function formatDuration(seconds: number): string {
     const h = Math.floor(seconds / 3600)
     const m = Math.floor((seconds % 3600) / 60)

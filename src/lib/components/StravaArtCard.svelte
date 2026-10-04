@@ -1,10 +1,11 @@
 <script lang="ts">
     // Strava Art gallery card: route map on top, then title, description and
-    // a one-line distance · time stat. Brand pieces get a wider map, a yellow
+    // a one-line date · distance · time stat. Brand pieces get a wider map, a yellow
     // border and a brand pill. Takes the raw ArtActivity from the build and
     // does all formatting here.
     import RouteMap from '$lib/components/ui/RouteMap.svelte'
     import {
+        formatDate,
         formatDistance,
         formatDuration,
         type ArtActivity,
@@ -69,7 +70,13 @@
                 {activity.description}
             </p>
         {/if}
-        <div class="font-jetbrains-mono text-nord14 flex gap-4 text-xs">
+        <div
+            class="font-jetbrains-mono text-nord14 flex flex-wrap gap-x-4 text-xs"
+        >
+            <time datetime={activity.startDate} class="text-nord4">
+                {formatDate(activity.startDateLocal)}
+            </time>
+            <span class="text-nord3" aria-hidden="true">·</span>
             <span>{formatDistance(activity.distance)}</span>
             <span class="text-nord3" aria-hidden="true">·</span>
             <span>{formatDuration(activity.movingTime)}</span>
