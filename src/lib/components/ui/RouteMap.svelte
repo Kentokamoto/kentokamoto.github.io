@@ -34,9 +34,7 @@
     const path = $derived(polylineToPath(encoded))
     // GeoJSON wants [lng, lat]; polyline.decode returns [lat, lng].
     const coords = $derived(
-        encoded
-            ? polyline.decode(encoded).map(([lat, lng]) => [lng, lat])
-            : []
+        encoded ? polyline.decode(encoded).map(([lat, lng]) => [lng, lat]) : []
     )
 
     let root: HTMLDivElement

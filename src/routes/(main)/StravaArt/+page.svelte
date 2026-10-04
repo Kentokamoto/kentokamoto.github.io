@@ -11,8 +11,9 @@
     const hasArt = $derived(data.activities.length > 0)
 </script>
 
-{#snippet activityList(items: ArtActivity[])}
-    <div class="grid gap-6 md:grid-cols-2">
+<!-- Brand pieces: 2 columns. Personal pieces: 3, then 2, then 1. -->
+{#snippet activityList(items: ArtActivity[], cols: string)}
+    <div class="grid gap-6 {cols}">
         {#each items as activity (activity.id)}
             <StravaArtCard {activity} />
         {/each}
@@ -54,14 +55,17 @@
             <Eyebrow color="text-nord13" class="mb-6"
                 >// BRAND COLLABORATIONS</Eyebrow
             >
-            {@render activityList(brandPieces)}
+            {@render activityList(brandPieces, 'md:grid-cols-2')}
         </Container>
     {/if}
 
     <!-- PERSONAL PIECES -->
     <Container class="pb-20 sm:pb-28">
         <Eyebrow class="mb-6">// PERSONAL PIECES</Eyebrow>
-        {@render activityList(personalPieces)}
+        {@render activityList(
+            personalPieces,
+            'min-[480px]:grid-cols-2 md:grid-cols-3'
+        )}
     </Container>
 {:else}
     <!-- FALLBACK: art cache empty or unreachable at build time -->
