@@ -46,6 +46,23 @@
         to have a couple of brands reach out to collaborate, which has been such
         a cool experience!
     </p>
+    <p
+        class="font-jetbrains-mono text-nord4 mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm"
+    >
+        <span class="text-nord9">// FOLLOW ALONG</span>
+        <a
+            href="https://www.instagram.com/routesbykento"
+            target="_blank"
+            rel="noopener"
+            class="text-nord8 hover:text-nord7">instagram @routesbykento →</a
+        >
+        <a
+            href="https://www.strava.com/athletes/43773325"
+            target="_blank"
+            rel="noopener"
+            class="text-nord8 hover:text-nord7">strava →</a
+        >
+    </p>
 </Container>
 
 {#if hasArt}
