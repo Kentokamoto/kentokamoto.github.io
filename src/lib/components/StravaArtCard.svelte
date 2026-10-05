@@ -27,10 +27,13 @@
         ? 'border-nord13'
         : 'border-nord3'}"
 >
+    <!-- Firefox doesn't clip the map's WebGL canvas to the article's rounded
+         overflow, so clip the top corners here too (11px = 12px radius minus
+         the 1px border). -->
     <div
-        class="{isBrand ? 'aspect-[16/10]' : 'aspect-square'} {activity.polyline
-            ? 'bg-nord0'
-            : 'hatch'}"
+        class="[clip-path:inset(0_round_11px_11px_0_0)] {isBrand
+            ? 'aspect-[16/10]'
+            : 'aspect-square'} {activity.polyline ? 'bg-nord0' : 'hatch'}"
     >
         <RouteMap
             encoded={activity.polyline}
