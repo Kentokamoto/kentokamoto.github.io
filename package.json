@@ -7,7 +7,7 @@
         "dev": "vite dev",
         "build": "vite build",
         "preview": "vite preview",
-        "prepare": "svelte-kit sync || echo ''",
+        "prepare": "svelte-kit sync || echo ''; husky",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
         "format": "prettier --write .",
@@ -20,6 +20,8 @@
         "@sveltejs/kit": "^2.63.0",
         "@sveltejs/vite-plugin-svelte": "^7.1.2",
         "@tailwindcss/vite": "^4.0.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.6.0",
         "prettier": "^3.4.2",
         "prettier-plugin-svelte": "^3.3.3",
         "prettier-plugin-tailwindcss": "^0.8.0",
@@ -38,5 +40,8 @@
         "@mapbox/polyline": "^1.2.1",
         "@types/mapbox__polyline": "^1.0.5",
         "maplibre-gl": "^6.12.0"
+    },
+    "lint-staged": {
+        "*": "prettier --write --ignore-unknown"
     }
 }
