@@ -5,7 +5,7 @@
     import Button from '$lib/components/ui/Button.svelte'
     import routePreview from '$lib/assets/art/17296778475.jpeg?w=1080;540&enhanced'
 
-    const sliceUrl = 'https://kentokamoto.github.io/sliceathon/'
+    const sliceUrl = 'https://www.sliceenterprise.com'
 </script>
 
 <!-- HERO -->
