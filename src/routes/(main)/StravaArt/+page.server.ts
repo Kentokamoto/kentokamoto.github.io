@@ -10,7 +10,8 @@ import type { PageServerLoad } from './$types'
 // Commissioned pieces, keyed by activity id. These group under
 // "Brand Collaborations".
 const BRANDS: Record<number, string> = {
-    12479331590: 'Duolingo reached if they could use the route as promotional material on LinkedIn',
+    12479331590:
+        'Duolingo reached if they could use the route as promotional material on LinkedIn',
     17223476180:
         'Brand collaboration with the weighted apparel company OMORPHO for their social media',
     17296778475:

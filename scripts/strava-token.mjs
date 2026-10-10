@@ -40,11 +40,15 @@ if (cmd === 'authorize') {
             approval_prompt: 'force',
             scope: 'activity:read_all',
         })
-    console.log('\nOpen this URL, click Authorize, then copy the `code` param:\n')
+    console.log(
+        '\nOpen this URL, click Authorize, then copy the `code` param:\n'
+    )
     console.log(url + '\n')
 } else if (cmd === 'exchange') {
     if (!arg) {
-        console.error('Usage: node --env-file=.env scripts/strava-token.mjs exchange <code>')
+        console.error(
+            'Usage: node --env-file=.env scripts/strava-token.mjs exchange <code>'
+        )
         process.exit(1)
     }
     const res = await fetch('https://www.strava.com/oauth/token', {
